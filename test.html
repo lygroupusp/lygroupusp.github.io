@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- Cartes des membres -->
-    <div class="member-card" id="member1">
+    <div class="member-card" id="test">
         <h2>Membre 1</h2>
         <div id="qrcode1"></div>
         <p>Informations du membre 1...</p>
@@ -26,7 +26,7 @@
         // Fonction pour générer un code QR pour un membre donné
         function generateQRCode(memberId) {
             var qrcodeDiv = document.getElementById('qrcode' + memberId); // Sélectionnez l'élément où vous voulez afficher le code QR
-            var memberPageURL = 'membre' + memberId + '.html'; // URL de la page du membre
+           var memberPageURL = 'lygroupusp.github.io/membre' + memberId + '.html';
 
             // Utilisez qrcode-generator pour générer le code QR
             var qrcode = new QRCode(qrcodeDiv, {
