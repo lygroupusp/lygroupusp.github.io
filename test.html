@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membres</title>
+    <!-- Inclure la bibliothèque JavaScript pour générer des codes QR -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+    <!-- Cartes des membres -->
+    <div class="member-card" id="member1">
+        <h2>Membre 1</h2>
+        <div id="qrcode1"></div>
+        <p>Informations du membre 1...</p>
+    </div>
+    
+    <div class="member-card" id="member2">
+        <h2>Membre 2</h2>
+        <div id="qrcode2"></div>
+        <p>Informations du membre 2...</p>
+    </div>
+
+    <!-- JavaScript pour générer les codes QR et gérer les redirections -->
+    <script>
+        // Fonction pour générer un code QR pour un membre donné
+        function generateQRCode(memberId) {
+            var qrcodeDiv = document.getElementById('qrcode' + memberId); // Sélectionnez l'élément où vous voulez afficher le code QR
+            var memberPageURL = 'membre' + memberId + '.html'; // URL de la page du membre
+
+            // Utilisez qrcode-generator pour générer le code QR
+            var qrcode = new QRCode(qrcodeDiv, {
+                text: memberPageURL,
+                width: 128,  // Définissez la largeur du code QR selon vos préférences
+                height: 128  // Définissez la hauteur du code QR selon vos préférences
+            });
+
+            // Ajoutez un gestionnaire d'événements de clic pour la redirection
+            qrcodeDiv.addEventListener('click', function() {
+                window.location.href = memberPageURL;
+            });
+        }
+
+        // Générez les codes QR pour chaque membre
+        generateQRCode(1); // Pour le membre 1
+        generateQRCode(2); // Pour le membre 2
+        // Ajoutez d'autres membres au besoin
+
+    </script>
+</body>
+</html>
